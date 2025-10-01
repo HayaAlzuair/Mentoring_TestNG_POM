@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Mentoring_TestNG_POM(failed)">
+    <classes>
+      <class name="tasks.F17T2_ScreenshotCaptureListenerforFailedTests">
+        <methods>
+          <include name="emptyFirstnameTest"/>
+          <include name="afterMethod"/>
+          <include name="beforMethod"/>
+        </methods>
+      </class> <!-- tasks.F17T2_ScreenshotCaptureListenerforFailedTests -->
+    </classes>
+  </test> <!-- Mentoring_TestNG_POM(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->

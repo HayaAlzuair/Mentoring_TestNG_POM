@@ -3,6 +3,7 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.ActionsClickDragPage;
 import pages.ActionsFormPage;
 import pages.AddRecordPage;
 import utilities.Driver;
@@ -35,11 +36,23 @@ public class C03_ActionsForm {
                 .clickSubmit();
 
 //        Do all actions and assert
+        ActionsClickDragPage actionsPage = new ActionsClickDragPage();
 
+        actionsPage.clickButton();
+        Assert.assertEquals(actionsPage.getClickResult(), "You clicked!", "Click action failed!");
 
+        actionsPage.doubleClickButton();
+        Assert.assertEquals(actionsPage.getDoubleClickResult(), "You double clicked!", "Double Click failed!");
+
+        actionsPage.rightClickButton();
+        Assert.assertEquals(actionsPage.getRightClickResult(), "You right clicked!", "Right Click failed!");
+
+        actionsPage.dragAndDrop();
+        Assert.assertEquals(actionsPage.getDragDropResult(), "Dropped!", "Drag and Drop failed!");
 
         Driver.closeDriver();
-
     }
+
+
     }
 
