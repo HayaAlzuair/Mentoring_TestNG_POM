@@ -63,4 +63,43 @@ public class C08_CLRegistration {
     }
 
     //Rest is homework!
+    @Test
+    void emptyLastnameTest() {
+        registrationPage = new CLRegistrationPage();
+        Driver.getDriver().get("https://thinking-tester-contact-list.herokuapp.com/addUser");
+        registrationPage
+                .enterFirstname(Faker.instance().name().firstName())
+                .enterEmail(Faker.instance().internet().emailAddress())
+                .enterPassword("Password.123")
+                .clickSubmit()
+                .assertErrorMessage("`firstName` is required.");
+    }
+
+
+    @Test
+    void lastnameWithSpecialCharTest() {
+        registrationPage = new CLRegistrationPage();
+        Driver.getDriver().get("https://thinking-tester-contact-list.herokuapp.com/addUser");
+        registrationPage
+                .enterFirstname(Faker.instance().name().firstName())
+                .enterLastname("J@hn")
+                .enterEmail(Faker.instance().internet().emailAddress())
+                .enterPassword("Password.123")
+                .clickSubmit()
+                .assertErrorMessage("lastName");
+    }
+
+
+    @Test
+    void lastnameWithNumbersTest() {
+        registrationPage = new CLRegistrationPage();
+        Driver.getDriver().get("https://thinking-tester-contact-list.herokuapp.com/addUser");
+        registrationPage
+                .enterFirstname(Faker.instance().name().firstName())
+                .enterLastname("John123")
+                .enterEmail(Faker.instance().internet().emailAddress())
+                .enterPassword("Password.123")
+                .clickSubmit()
+                .assertErrorMessage("lastName");
+    }
 }
